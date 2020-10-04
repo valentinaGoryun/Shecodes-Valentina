@@ -1,0 +1,66 @@
+body {
+  font-family: Patua One;
+}
+
+.container {
+  margin: 10px auto;
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/2449543/pexels-photo-2449543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  color: #52575d;
+  text-align: center;
+  border: solid 3px #838383;
+  border-radius: 10px;
+  padding: 20px 0;
+  width: 900px;
+}
+
+h1 {
+  border: solid 3px #838383;
+  text-align: center;
+  margin: 10px 60px;
+  border-radius: 40px;
+  box-shadow: 9px 9px 5px rgb(146, 144, 144);
+  background-image: linear-gradient(to top, #50cc7f 0%, #f5d100 100%);
+}
+
+h2 {
+  text-align: center;
+}
+
+hr {
+  border-width: 3px;
+  margin: 5px 60px;
+  border-color: #50cc7f;
+  display: block;
+}
+hrTop {
+  margin-bottom: 9px;
+}
+.hrBottom {
+  border-color: #f5d100;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.button {
+  margin: 15px auto 10px;
+}
+.btn-outline-secondary {
+  font-size: 20px;
+}
+.clock {
+  margin: 10px auto 10px;
+  font-size: 20px;
+}
+.forecast {
+  margin: 0 10%;
+}
+.weatherTip {
+  text-align: center;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+#location-button {
+  margin: 0 20px;
+}
