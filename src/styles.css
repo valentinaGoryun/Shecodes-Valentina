@@ -64,3 +64,8 @@ hrTop {
 #location-button {
   margin: 0 20px;
 }
+
+.openSource {
+  text-align: center;
+  color: #52575d;
+}

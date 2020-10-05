@@ -1,99 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/0f0e562129.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/0f0e562129.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Amsterdam</h1>
-            <h2>Today | 2nd of september</h2>
+      <div class="header">
+        <h1>Amsterdam</h1>
+        <h2>Today | 2nd of september</h2>
+      </div>
+      <form class="form-inline justify-content-center" id="form">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputPassword2" class="sr-only">Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputCity"
+            placeholder="Enter your city here"
+          />
         </div>
-        <form class="form-inline justify-content-center" id="form">
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputPassword2" class="sr-only">Password</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Enter your city here" />
-            </div>
-            <button type="submit" class="btn btn-success mb-2 go" id="go-button">
-                Go!
-            </button>
-            <button type="submit" class="btn btn-success mb-2 go" id="location-button">
-                Current location
-            </button>
-        </form>
+        <button type="submit" class="btn btn-success mb-2 go" id="go-button">
+          Go!
+        </button>
+        <button
+          type="submit"
+          class="btn btn-success mb-2 go"
+          id="location-button"
+        >
+          Current location
+        </button>
+      </form>
 
-        <h3>
-            <span id="whatEmoji"> ☀</span>
-            <span id="tempToday">19°C</span>
-            <a href="#" id="celcius-link">°C</a>
-            <a href="#" id="fahr-link">|°F</a>
-            <span id="description" class="badge badge-success">Enjoy the sun!</span>
-        </h3>
+      <h3>
+        <span id="whatEmoji"> ☀</span>
+        <span id="tempToday">19°C</span>
+        <a href="#" id="celcius-link">°C</a>
+        <a href="#" id="fahr-link">|°F</a>
+        <span id="description" class="badge badge-success">Enjoy the sun!</span>
+      </h3>
 
-        <hr class="hrTop" />
-        <hr class="hrBottom" />
-        <div class="row forecast">
-            <div class="col-sm-2.4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Mon</h5>
-                        <p class="card-text">3 sept 🌤 22 °C</p>
-                    </div>
-                </div>
+      <hr class="hrTop" />
+      <hr class="hrBottom" />
+      <div class="row forecast">
+        <div class="col-sm-2.4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mon</h5>
+              <p class="card-text">3 sept 🌤 22 °C</p>
             </div>
-            <div class="col-sm-2.4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Tue</h5>
-                        <p class="card-text">4 sept 🌦 17 °C</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2.4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Wed</h5>
-                        <p class="card-text">5 sept ☀ 27 °C</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2.4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Thu</h5>
-                        <p class="card-text">6 sept ☀ 30 °C</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2.4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Fri</h5>
-                        <p class="card-text">7 sept 🌩 21 °C</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="button">
-            <button type="button" class="btn btn-outline-secondary">
-                Get 24 hour rain forecast
-            </button>
+        <div class="col-sm-2.4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tue</h5>
+              <p class="card-text">4 sept 🌦 17 °C</p>
+            </div>
+          </div>
         </div>
-        <div class="clock" id="clock">⏲ 20:40</div>
+        <div class="col-sm-2.4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Wed</h5>
+              <p class="card-text">5 sept ☀ 27 °C</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2.4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Thu</h5>
+              <p class="card-text">6 sept ☀ 30 °C</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2.4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Fri</h5>
+              <p class="card-text">7 sept 🌩 21 °C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <button type="button" class="btn btn-outline-secondary">
+          Get 24 hour rain forecast
+        </button>
+      </div>
+      <div class="clock" id="clock">⏲ 20:40</div>
+
+      <span class="openSource"
+        ><a
+          href="https://github.com/valentinaGoryun/Shecodes-Valentina"
+          target="_blank"
+          class="openSource"
+        >
+          Open-source code
+        </a>
+        by Valentina Goryun
+      </span>
     </div>
-
     <script src="src/script.js"></script>
-</body>
-
+  </body>
 </html>
