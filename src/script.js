@@ -51,7 +51,7 @@ function showTemperature(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${city}`;
   let tempToday = document.querySelector("#tempToday");
-  tempToday.innerHTML = `${temperature}°C`;
+  tempToday.innerHTML = `${temperature}`;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 }
@@ -76,7 +76,7 @@ function showCurrentTemp(response) {
   let h1 = document.querySelector("h1");
   let temp = document.querySelector("#tempToday");
   let temperature = Math.round(response.data.main.temp);
-  temp.innerHTML = `${temperature}°C`;
+  temp.innerHTML = `${temperature}`;
   let city = response.data.name;
   h1.innerHTML = `${city}`;
 }

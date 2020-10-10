@@ -11,7 +11,7 @@ body {
   border: solid 3px #838383;
   border-radius: 10px;
   padding: 20px 0;
-  width: 900px;
+  max-width: 900px;
 }
 
 h1 {
@@ -68,4 +68,18 @@ hrTop {
 .openSource {
   text-align: center;
   color: #52575d;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -12px;
+}
+
+#tempToday {
+  font-size: 32px;
+}
+
+.badge-success {
+  margin-left: 5px;
 }
