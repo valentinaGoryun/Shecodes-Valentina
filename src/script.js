@@ -49,11 +49,15 @@ function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
   let tempToday = document.querySelector("#tempToday");
+  let iconElement = document.querySelector("#icon");
+  let iconCode = response.data.weather[0].icon;
+  
   tempToday.innerHTML = `${temperature}`;
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  h1.innerHTML = `${city}`;
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
@@ -76,9 +80,15 @@ function showCurrentTemp(response) {
   let h1 = document.querySelector("h1");
   let temp = document.querySelector("#tempToday");
   let temperature = Math.round(response.data.main.temp);
-  temp.innerHTML = `${temperature}`;
   let city = response.data.name;
+  let iconElement = document.querySelector("#icon");
+  let iconCode = response.data.weather[0].icon;
+ 
   h1.innerHTML = `${city}`;
+  temp.innerHTML = `${temperature}`;
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showCurrentPosition(position) {
