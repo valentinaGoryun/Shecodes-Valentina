@@ -87,3 +87,13 @@ hrTop {
 #icon {
   padding: 10px 0;
 }
+
+.notActive {
+  color: #52575d;
+  cursor: default;
+}
+
+.notActive:hover {
+  text-decoration: none;
+  color: #52575d;
+}

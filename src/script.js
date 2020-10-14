@@ -52,6 +52,7 @@ function showTemperature(response) {
   let tempToday = document.querySelector("#tempToday");
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
+  celciusTemperature = response.data.main.temp;
   
   tempToday.innerHTML = `${temperature}`;
   h1.innerHTML = `${city}`;
@@ -83,6 +84,7 @@ function showCurrentTemp(response) {
   let city = response.data.name;
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
+  celciusTemperature = response.data.main.temp;
  
   h1.innerHTML = `${city}`;
   temp.innerHTML = `${temperature}`;
@@ -106,4 +108,32 @@ function getLocation() {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", getLocation);
 
+function displayFahrTemp(event){
+event.preventDefault();
+let temp = document.querySelector("#tempToday");
+let fahrTemp = (celciusTemperature * 9) / 5 + 32;
+temp.innerHTML = Math.round(fahrTemp);
+celciusLink.classList.remove("notActive");
+fahrLink.classList.add("notActive");
+}
+
+function displayCelciusTemp(event){
+event.preventDefault();
+let temp = document.querySelector("#tempToday");
+temp.innerHTML = Math.round(celciusTemperature);s
+celciusLink.classList.add("notActive");
+fahrLink.classList.remove("notActive");
+
+}
+
 search("Amsterdam");
+
+let celciusTemperature = null;
+
+let fahrLink = document.querySelector("#fahr-link");
+fahrLink.addEventListener("click", displayFahrTemp);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemp);
+
+
