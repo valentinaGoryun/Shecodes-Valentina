@@ -46,19 +46,24 @@ function getDay() {
 getDay();
 
 function showTemperature(response) {
+  console.log(response)
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let h1 = document.querySelector("h1");
   let tempToday = document.querySelector("#tempToday");
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
+  let windSpeed = document.querySelector("#wind");
+  let humidity = document.querySelector("#humidity");
   celciusTemperature = response.data.main.temp;
   
   tempToday.innerHTML = `${temperature}`;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  humidity.innerHTML = Math.round(response.data.main.humidity);
   h1.innerHTML = `${city}`;
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
-iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
@@ -84,10 +89,14 @@ function showCurrentTemp(response) {
   let city = response.data.name;
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
+  let windSpeed = document.querySelector("#wind");
+    let humidity = document.querySelector("#humidity");
   celciusTemperature = response.data.main.temp;
  
   h1.innerHTML = `${city}`;
   temp.innerHTML = `${temperature}`;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  humidity.innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
   iconElement.setAttribute("alt", response.data.weather[0].description);

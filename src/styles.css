@@ -85,7 +85,8 @@ hrTop {
 }
 
 #icon {
-  padding: 10px 0;
+  padding: 0;
+  size: 10px;
 }
 
 .notActive {
