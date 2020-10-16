@@ -5,7 +5,9 @@ body {
 .container {
   margin: 10px auto;
   width: 100%;
-  background-image: url("https://images.pexels.com/photos/2449543/pexels-photo-2449543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: url("https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?cs=srgb&dl=pexels-pixabay-158827.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #52575d;
   text-align: center;
   border: solid 3px #838383;
@@ -51,6 +53,7 @@ hrTop {
 .clock {
   margin: 10px auto 10px;
   font-size: 20px;
+  color: white;
 }
 .forecast {
   margin: 0 10%;
@@ -67,7 +70,7 @@ hrTop {
 
 .openSource {
   text-align: center;
-  color: #52575d;
+  color: white;
 }
 
 .units {
@@ -87,6 +90,8 @@ hrTop {
 #icon {
   padding: 0;
   size: 10px;
+  width: 90px;
+  height: 80px;
 }
 
 .notActive {
@@ -97,4 +102,9 @@ hrTop {
 .notActive:hover {
   text-decoration: none;
   color: #52575d;
+}
+
+#icon1 {
+  width: 60px;
+  height: 50px;
 }

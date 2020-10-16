@@ -45,6 +45,20 @@ function getDay() {
 
 getDay();
 
+function getTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function showTemperature(response) {
   console.log(response)
   let temperature = Math.round(response.data.main.temp);
@@ -71,6 +85,8 @@ function search(city) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
+  url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showForecast);
 }
 
 function handleSubmit(event) {
@@ -108,6 +124,8 @@ function showCurrentPosition(position) {
   let apiKey = "0f8aae56fcc82b00428b3611d576957b";
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showCurrentTemp);
+  url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showForecast);
 }
 
 function getLocation() {
@@ -146,3 +164,22 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
 
+function showForecast(response) {
+let forecastDays = document.querySelector("#forecast");
+  forecastDays.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 4; index++) {
+    forecast = response.data.list[index];
+    forecastDays.innerHTML += `
+       <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">  ${getTime(forecast.dt * 1000)} </h5>
+              <p class="card-text">  <img id = "icon1"src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt=""> 
+              ${Math.round(forecast.main.temp)} °C</p>
+            </div>
+          </div>
+        </div>`
+  }
+}
