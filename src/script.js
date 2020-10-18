@@ -12,7 +12,7 @@ function getDay() {
     "September",
     "October",
     "November",
-    "December",
+    "December"
   ];
 
   let days = [
@@ -22,7 +22,7 @@ function getDay() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Saturday"
   ];
 
   let currentYear = date.getFullYear();
@@ -60,7 +60,7 @@ function getTime(timestamp) {
 }
 
 function showTemperature(response) {
-  console.log(response)
+  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let h1 = document.querySelector("h1");
@@ -70,13 +70,17 @@ function showTemperature(response) {
   let windSpeed = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
   celciusTemperature = response.data.main.temp;
-  
+
   tempToday.innerHTML = `${temperature}`;
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
   humidity.innerHTML = Math.round(response.data.main.humidity);
   h1.innerHTML = `${city}`;
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
-  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
@@ -85,7 +89,7 @@ function search(city) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
-  url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showForecast);
 }
 
@@ -106,15 +110,19 @@ function showCurrentTemp(response) {
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
   let windSpeed = document.querySelector("#wind");
-    let humidity = document.querySelector("#humidity");
+  let humidity = document.querySelector("#humidity");
   celciusTemperature = response.data.main.temp;
- 
+
   h1.innerHTML = `${city}`;
   temp.innerHTML = `${temperature}`;
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
   humidity.innerHTML = Math.round(response.data.main.humidity);
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
-  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${iconCode}@2x.png`);   
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
@@ -122,9 +130,9 @@ function showCurrentPosition(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
   let apiKey = "0f8aae56fcc82b00428b3611d576957b";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showCurrentTemp);
-  url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showCurrentTemp);
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showForecast);
 }
 
@@ -135,22 +143,21 @@ function getLocation() {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", getLocation);
 
-function displayFahrTemp(event){
-event.preventDefault();
-let temp = document.querySelector("#tempToday");
-let fahrTemp = (celciusTemperature * 9) / 5 + 32;
-temp.innerHTML = Math.round(fahrTemp);
-celciusLink.classList.remove("notActive");
-fahrLink.classList.add("notActive");
+function displayFahrTemp(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#tempToday");
+  let fahrTemp = (celciusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrTemp);
+  celciusLink.classList.remove("notActive");
+  fahrLink.classList.add("notActive");
 }
 
-function displayCelciusTemp(event){
-event.preventDefault();
-let temp = document.querySelector("#tempToday");
-temp.innerHTML = Math.round(celciusTemperature);s
-celciusLink.classList.add("notActive");
-fahrLink.classList.remove("notActive");
-
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#tempToday");
+  temp.innerHTML = Math.round(celciusTemperature);
+  celciusLink.classList.add("notActive");
+  fahrLink.classList.remove("notActive");
 }
 
 search("Amsterdam");
@@ -163,9 +170,8 @@ fahrLink.addEventListener("click", displayFahrTemp);
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
-
 function showForecast(response) {
-let forecastDays = document.querySelector("#forecast");
+  let forecastDays = document.querySelector("#forecast");
   forecastDays.innerHTML = null;
   let forecast = null;
 
@@ -176,10 +182,11 @@ let forecastDays = document.querySelector("#forecast");
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">  ${getTime(forecast.dt * 1000)} </h5>
-              <p class="card-text">  <img id = "icon1"src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt=""> 
+              <p class="card-text">  <img id = "icon1"src="http://openweathermap.org/img/wn/${forecast.weather[0].icon
+      }@2x.png" alt=""> 
               ${Math.round(forecast.main.temp)} °C</p>
             </div>
           </div>
-        </div>`
+        </div>`;
   }
 }

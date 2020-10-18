@@ -1,86 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="src/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/0f0e562129.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1>Amsterdam</h1>
-        <h2>Today | 2nd of september</h2>
-      </div>
-      <form class="form-inline justify-content-center" id="form">
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputCity"
-            placeholder="Enter your city here"
-          />
-        </div>
-        <button type="submit" class="btn btn-success mb-2 go" id="go-button">
-          Go!
-        </button>
-        <button
-          type="submit"
-          class="btn btn-success mb-2 go"
-          id="location-button"
-        >
-          Current location
-        </button>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather app</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/0f0e562129.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-      <h3>
-      <img src="" alt="Clear" id="icon"  />
-        <span id="tempToday">19°C</span>
-        <span class="units">
-        <a href="#" id="celcius-link" class="notActive">°C</a>
-        <a href="#" id="fahr-link">|°F</a> </span>
-        <span id="description" class="badge badge-success">Enjoy the sun!</span>
-        <span id="wind-button" class="badge badge-success">🍃 <span id="wind"></span> km/h</span>
-        <span id="humidity-button" class="badge badge-success">💧 <span id="humidity"></span> %</span>
-      </h3>
-
-
-      <hr class="hrTop" />
-      <hr class="hrBottom" />
-      <div class="row forecast" id="forecast">
-      </div>
-
-
-      <div class="clock" id="clock">⏲ 20:40</div>
-
-      <small class="openSource"
-        ><a
-          href="https://github.com/valentinaGoryun/Shecodes-Valentina"
-          target="_blank"
-          class="openSource"
-        >
-          Open-source code
-        </a>
-        by Valentina Goryun
-      </small>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Amsterdam</h1>
+      <h2>Today | 2nd of september</h2>
     </div>
-    <script src="src/script.js"></script>
-  </body>
+    <form class="form-inline justify-content-center" id="form">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="Enter your city here" />
+      </div>
+      <button type="submit" class="btn btn-success mb-2 go" id="go-button">
+        Go!
+      </button>
+      <button type="submit" class="btn btn-success mb-2 go" id="location-button">
+        Current location
+      </button>
+    </form>
+
+    <h3>
+      <img src="#" alt="Clear" id="icon" />
+      <span id="tempToday">19°C</span>
+      <span class="units">
+        <a href="#" id="celcius-link" class="notActive">°C</a>
+        <a href="#" id="fahr-link">|°F</a>
+      </span>
+      <span id="description" class="badge badge-success">Enjoy the sun!</span>
+      <span id="wind-button" class="badge badge-success">🍃 <span id="wind"></span> km/h</span>
+      <span id="humidity-button" class="badge badge-success">💧 <span id="humidity"></span> %</span>
+    </h3>
+
+    <hr class="hrTop" />
+    <hr class="hrBottom" />
+    <div class="row forecast" id="forecast"></div>
+
+    <div class="clock" id="clock">⏲ 20:40</div>
+
+    <small class="openSource"><a href="https://github.com/valentinaGoryun/Shecodes-Valentina" target="_blank"
+        class="openSource">
+        Open-source code
+      </a>
+      by Valentina Goryun
+    </small>
+  </div>
+  <script src="src/script.js"></script>
+</body>
+
 </html>
